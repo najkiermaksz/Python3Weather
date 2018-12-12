@@ -1,0 +1,6 @@
+certifi
+chardet
+idna
+Pillow
+requests
+urllib3
