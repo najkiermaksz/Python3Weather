@@ -234,7 +234,7 @@ class App:
         # Footer Frame (Teleprompter)
         clock_label = tkinter.Label(
             footer_frame, width=20, font=('Oswald', 40),
-            background=BLACK, foreground=WHITE, justify=LEFT
+            background=BLACK, foreground='#FFF', justify=LEFT
             )
         clock_label.pack(fill=BOTH)
 
