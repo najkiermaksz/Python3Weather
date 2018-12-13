@@ -155,7 +155,7 @@ class App:
                 ACCENT = ui_map[key_descriptor]['night']['accent']
                 IMAGE = ui_map[key_descriptor]['night']['image']
 
-            weather_title.configure(text='{weather} at\n{locale}'.format(
+            weather_title.configure(text='{weather} itt:\n{locale}'.format(
                 weather=(weather_now['weather'][0]['description']).capitalize(),
                 locale=(self.user['locale']).capitalize()
             ), background=BACKGROUND)
