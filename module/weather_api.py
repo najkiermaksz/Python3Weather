@@ -43,7 +43,7 @@ class OpenWeatherAPI(object):
             option['lon'] = lon
             del option['coordinate']
 
-        weather_url = self.baseurl + 'weather' + 'lang=hu'
+        weather_url = self.baseurl + 'weather'
         response = requests.get(url=weather_url, params=option, headers=self.headers)
         if (self.debug):
             print(response.url)
