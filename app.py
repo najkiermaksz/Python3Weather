@@ -164,7 +164,7 @@ class App:
             forecast_label.configure(image=forecast_img, background=BACKGROUND)
             forecast_label.image = forecast_img
 
-            env_detail_label.configure(background=ACCENT, foreground=FOREGROUND)
+            env_detail_label.configure(background=BLACK, foreground=WHITE)
 
             # Change this if you want to switch (default : Celcius)
             k_to_c = int(weather_now['main']['temp'] - 273)
@@ -250,7 +250,7 @@ class App:
         middle_frame.pack(fill=BOTH, anchor=CENTER, expand=True)
         footer_frame.pack(fill=BOTH, anchor=S, expand=True)
 
-        middle_frame.configure(background=WHITE)
+        middle_frame.configure(background=BLACK)
         footer_frame.configure(background=BLACK)
         window.pack(fill=BOTH, expand=True)
 
