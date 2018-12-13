@@ -25,7 +25,7 @@ class App:
 
     def __init__(self, root, title, user):
         self.root = root
-        self.root.title('piWeatherman')
+        self.root.title('Python3Weather')
         # Set Geometry to your Raspberry Pi Display Size
         # In case you don't want it fullscreen
         self.root.geometry('460x300') # Default is 460x300
@@ -49,26 +49,26 @@ class App:
         BUTTONS = SEMI_CLOUDY_DAY_ACCENT
 
         page_title = tkinter.Label(
-            form, text='Registration', font=('Roboto', 20),
+            form, text='Registration', font=('Oswald', 20),
             background=BACKGROUND, foreground='#FFF'
             ).pack(pady=10)
 
         fullname_label = tkinter.Label(
-            form, text='Full Name', width=20, font=('Roboto', 14),
+            form, text='Full Name', width=20, font=('Oswald', 14),
             background=BACKGROUND, foreground=WHITE
             ).pack()
         fullname_entry = tkinter.Entry(form, bd=0, justify=CENTER)
         fullname_entry.pack()
 
         key_label = tkinter.Label(
-            form, text='API Key', width=20, font=('Roboto', 14),
+            form, text='API Key', width=20, font=('Oswald', 14),
             background=BACKGROUND, foreground=WHITE
             ).pack()
         key_entry = tkinter.Entry(form, bd=0, justify=CENTER)
         key_entry.pack()
 
         locality_label = tkinter.Label(
-            form, text='Locality', width=20, font=('Roboto', 14),
+            form, text='Locality', width=20, font=('Oswald', 14),
             background=BACKGROUND, foreground=WHITE
             ).pack()
         locality_entry = tkinter.Entry(form, bd=0, justify=CENTER)
@@ -102,7 +102,7 @@ class App:
             text="Confirm Information?", bg=BACKGROUND, bd=0, highlightthickness=0
             ).pack(pady=10)
         submitButton = tkinter.Button(
-            form, text='Submit', font=('Roboto', 14), width=20,
+            form, text='Submit', font=('Oswald', 14), width=20,
             background=BUTTONS, foreground=WHITE, command=create_user, bd=0
             ).pack()
 
@@ -173,13 +173,13 @@ class App:
             temp_giant_label.configure(
                 text='{temp}°C'.format(temp=k_to_c), background=WHITE, foreground=ACCENT)
             wind_label.configure(
-                text='Wind Speed : {wind} m/s'.format(wind=weather_now['wind']['speed']),
+                text='Szél sebessége : {wind} m/s'.format(wind=weather_now['wind']['speed']),
                 background=WHITE, foreground=ACCENT)
             humid_label.configure(
-                text='Humidity : {humid}%'.format(humid=weather_now['main']['humidity']),
+                text='Páratartalom : {humid}%'.format(humid=weather_now['main']['humidity']),
                 background=WHITE, foreground=ACCENT)
             pressure_label.configure(
-                text='Pressure : {press} hPa'.format(press=weather_now['main']['pressure']),
+                text='Légnyomás : {press} hPa'.format(press=weather_now['main']['pressure']),
                 background=WHITE, foreground=ACCENT)
 
             header_frame.configure(background=BACKGROUND)
@@ -191,7 +191,7 @@ class App:
 
         # Header Forecast and City
         weather_title = tkinter.Label(
-            header_frame, width=20, font=('Roboto', 18), foreground=WHITE, justify=LEFT
+            header_frame, width=20, font=('Oswald', 18), foreground=BLACK, justify=LEFT
             )
         weather_title.pack(side=LEFT)
 
@@ -200,7 +200,7 @@ class App:
 
         # Middle Frame (Temperature and Details)
         env_detail_label = tkinter.Label(
-            middle_frame, text='Environment Details', width=20, font=('Roboto', 14),
+           # middle_frame, text='Environment Details', width=20, font=('Oswald', 14),
             justify=CENTER
             )
         env_detail_label.pack(fill=X)
@@ -212,28 +212,28 @@ class App:
         temp_frame.pack(fill=X, side=LEFT, anchor=W, pady=20)
 
         temp_giant_label = tkinter.Label(
-            temp_frame, width=10, font=('Roboto', 40)
+            temp_frame, width=10, font=('Oswald', 40)
             )
         temp_giant_label.pack(side=LEFT, anchor=E)
 
         wind_label = tkinter.Label(
-            env_detail, font=('Roboto', 12)
+            env_detail, font=('Oswald', 12)
             )
         wind_label.pack(fill=X, anchor=W)
 
         humid_label = tkinter.Label(
-            env_detail, font=('Roboto', 12)
+            env_detail, font=('Oswald', 12)
             )
         humid_label.pack(fill=X, anchor=W)
 
         pressure_label = tkinter.Label(
-            env_detail, font=('Roboto', 12), justify=LEFT
+            env_detail, font=('Oswald', 12), justify=LEFT
             )
         pressure_label.pack(fill=X, anchor=W)
 
         # Footer Frame (Teleprompter)
         clock_label = tkinter.Label(
-            footer_frame, width=20, font=('Roboto', 32),
+            footer_frame, width=20, font=('Oswald', 40),
             background=BLACK, foreground=WHITE, justify=LEFT
             )
         clock_label.pack(fill=BOTH)
@@ -259,7 +259,7 @@ class App:
 
 if __name__ == '__main__':
     root = tkinter.Tk()
-    title = 'piWeatherman'
+    title = 'Python3Weather'
 
     if (os.path.exists('data/user.json')):
         with open('data/user.json', 'r') as user_information:
@@ -272,9 +272,9 @@ if __name__ == '__main__':
     def fullscreenToggle():
         global fullscreen
         if (fullscreen):
-            fullscreen = False
-        else :
             fullscreen = True
+        else :
+            fullscreen = False
         return fullscreen
 
     app = App(root, title, user)
