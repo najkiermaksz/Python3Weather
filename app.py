@@ -158,7 +158,7 @@ class App:
             weather_title.configure(text='{weather} itt:\n{locale}'.format(
                 weather=(weather_now['weather'][0]['description']).capitalize(),
                 locale=(self.user['locale']).capitalize()
-            ), background=BACKGROUND)
+            ), background=BACKGROUND, foreground='#FFF')
 
             forecast_img = ImageTk.PhotoImage(Image.open(IMAGE))
             forecast_label.configure(image=forecast_img, background=BACKGROUND)
@@ -171,16 +171,16 @@ class App:
             k_to_f = (weather_now['main']['temp'] - 32) * (5/9)
 
             temp_giant_label.configure(
-                text='{temp}°C'.format(temp=k_to_c), background=WHITE, foreground=ACCENT)
+                text='{temp}°C'.format(temp=k_to_c), background=BLACK, foreground=WHITE)
             wind_label.configure(
                 text='Szél sebessége : {wind} m/s'.format(wind=weather_now['wind']['speed']),
-                background=WHITE, foreground=ACCENT)
+                background=BLACK, foreground=WHITE)
             humid_label.configure(
                 text='Páratartalom : {humid}%'.format(humid=weather_now['main']['humidity']),
-                background=WHITE, foreground=ACCENT)
+                background=BLACK, foreground=WHITE)
             pressure_label.configure(
                 text='Légnyomás : {press} hPa'.format(press=weather_now['main']['pressure']),
-                background=WHITE, foreground=ACCENT)
+                background=BLACK, foreground=WHITE)
 
             header_frame.configure(background=BACKGROUND)
             window.configure(background=BACKGROUND)
@@ -191,7 +191,7 @@ class App:
 
         # Header Forecast and City
         weather_title = tkinter.Label(
-            header_frame, width=20, font=('Oswald', 18), foreground=BLACK, justify=LEFT
+            header_frame, width=20, font=('Oswald', 18), foreground=WHITE, justify=LEFT
             )
         weather_title.pack(side=LEFT)
 
