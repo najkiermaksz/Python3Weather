@@ -49,26 +49,26 @@ class App:
         BUTTONS = SEMI_CLOUDY_DAY_ACCENT
 
         page_title = tkinter.Label(
-            form, text='Registration', font=('assets/fonst/SF', 20),
+            form, text='Registration', font=('Helvetica bold', 20),
             background=BACKGROUND, foreground='#FFF'
             ).pack(pady=10)
 
         fullname_label = tkinter.Label(
-            form, text='Full Name', width=20, font=('assets/fonst/SF', 14),
+            form, text='Full Name', width=20, font=('Helvetica bold', 14),
             background=BACKGROUND, foreground=WHITE
             ).pack()
         fullname_entry = tkinter.Entry(form, bd=0, justify=CENTER)
         fullname_entry.pack()
 
         key_label = tkinter.Label(
-            form, text='API Key', width=20, font=('assets/fonst/SF', 14),
+            form, text='API Key', width=20, font=('Helvetica bold', 14),
             background=BACKGROUND, foreground=WHITE
             ).pack()
         key_entry = tkinter.Entry(form, bd=0, justify=CENTER)
         key_entry.pack()
 
         locality_label = tkinter.Label(
-            form, text='Locality', width=20, font=('assets/fonst/SF', 14),
+            form, text='Locality', width=20, font=('Helvetica bold', 14),
             background=BACKGROUND, foreground=WHITE
             ).pack()
         locality_entry = tkinter.Entry(form, bd=0, justify=CENTER)
@@ -102,7 +102,7 @@ class App:
             text="Confirm Information?", bg=BACKGROUND, bd=0, highlightthickness=0
             ).pack(pady=10)
         submitButton = tkinter.Button(
-            form, text='Submit', font=('assets/fonst/SF', 14), width=20,
+            form, text='Submit', font=('Helvetica bold', 14), width=20,
             background=BUTTONS, foreground=WHITE, command=create_user, bd=0
             ).pack()
 
@@ -191,7 +191,7 @@ class App:
 
         # Header Forecast and City
         weather_title = tkinter.Label(
-            header_frame, width=20, font=('assets/fonst/SF', 18), foreground=WHITE, justify=LEFT
+            header_frame, width=20, font=('Helvetica bold', 18), foreground=WHITE, justify=LEFT
             )
         weather_title.pack(side=LEFT)
 
@@ -200,7 +200,7 @@ class App:
 
         # Middle Frame (Temperature and Details)
         env_detail_label = tkinter.Label(
-           # middle_frame, text='Environment Details', width=20, font=('assets/fonst/SF', 14),
+           # middle_frame, text='Environment Details', width=20, font=('Helvetica bold', 14),
             justify=CENTER
             )
         env_detail_label.pack(fill=X)
@@ -212,28 +212,28 @@ class App:
         temp_frame.pack(fill=X, side=LEFT, anchor=W, pady=20)
 
         temp_giant_label = tkinter.Label(
-            temp_frame, width=10, font=('assets/fonst/SF', 40)
+            temp_frame, width=10, font=('Helvetica bold', 40)
             )
         temp_giant_label.pack(side=LEFT, anchor=E)
 
         wind_label = tkinter.Label(
-            env_detail, font=('assets/fonst/SF', 12)
+            env_detail, font=('Helvetica bold', 12)
             )
         wind_label.pack(fill=X, anchor=W)
 
         humid_label = tkinter.Label(
-            env_detail, font=('assets/fonst/SF', 12)
+            env_detail, font=('Helvetica bold', 12)
             )
         humid_label.pack(fill=X, anchor=W)
 
         pressure_label = tkinter.Label(
-            env_detail, font=('assets/fonst/SF', 12), justify=LEFT
+            env_detail, font=('Helvetica bold', 12), justify=LEFT
             )
         pressure_label.pack(fill=X, anchor=W)
 
         # Footer Frame (Teleprompter)
         clock_label = tkinter.Label(
-            footer_frame, width=20, font=('assets/fonst/SF', 40),
+            footer_frame, width=20, font=('Helvetica bold', 40),
             background=BLACK, foreground='#FFF', justify=LEFT
             )
         clock_label.pack(fill=BOTH)
