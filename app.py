@@ -49,26 +49,26 @@ class App:
         BUTTONS = SEMI_CLOUDY_DAY_ACCENT
 
         page_title = tkinter.Label(
-            form, text='Registration', font=('Helvetica bold', 20),
+            form, text='Registration', font=('Roboto bold', 20),
             background=BACKGROUND, foreground='#FFF'
             ).pack(pady=10)
 
         fullname_label = tkinter.Label(
-            form, text='Full Name', width=20, font=('Helvetica bold', 14),
+            form, text='Full Name', width=20, font=('Roboto bold', 14),
             background=BACKGROUND, foreground=WHITE
             ).pack()
         fullname_entry = tkinter.Entry(form, bd=0, justify=CENTER)
         fullname_entry.pack()
 
         key_label = tkinter.Label(
-            form, text='API Key', width=20, font=('Helvetica bold', 14),
+            form, text='API Key', width=20, font=('Roboto bold', 14),
             background=BACKGROUND, foreground=WHITE
             ).pack()
         key_entry = tkinter.Entry(form, bd=0, justify=CENTER)
         key_entry.pack()
 
         locality_label = tkinter.Label(
-            form, text='Locality', width=20, font=('Helvetica bold', 14),
+            form, text='Locality', width=20, font=('Roboto bold', 14),
             background=BACKGROUND, foreground=WHITE
             ).pack()
         locality_entry = tkinter.Entry(form, bd=0, justify=CENTER)
@@ -102,7 +102,7 @@ class App:
             text="Confirm Information?", bg=BACKGROUND, bd=0, highlightthickness=0
             ).pack(pady=10)
         submitButton = tkinter.Button(
-            form, text='Submit', font=('Helvetica bold', 14), width=20,
+            form, text='Submit', font=('Roboto bold', 14), width=20,
             background=BUTTONS, foreground=WHITE, command=create_user, bd=0
             ).pack()
 
@@ -155,14 +155,20 @@ class App:
                 ACCENT = ui_map[key_descriptor]['night']['accent']
                 IMAGE = ui_map[key_descriptor]['night']['image']
 
-            weather_title.configure(text='{weather} itt:\n{locale}'.format(
+            forecast_img = ImageTk.PhotoImage(Image.open(IMAGE))
+            forecast_label.configure(image=forecast_img, background=BACKGROUND, justify=CENTER)
+            forecast_label.image = forecast_img
+
+            local_title.configure(text='{locale}'.format(
+                locale=(self.user['locale']).capitalize()
+           ), background=BACKGROUND, foreground='#FFF', justify=CENTER)
+
+            weather_title.configure(text='{weather}'.format(
                 weather=(weather_now['weather'][0]['description']).capitalize(),
                 locale=(self.user['locale']).capitalize()
-            ), background=BACKGROUND, foreground='#FFF')
+           ), background=BACKGROUND, foreground='#FFF', justify=CENTER)
 
-            forecast_img = ImageTk.PhotoImage(Image.open(IMAGE))
-            forecast_label.configure(image=forecast_img, background=BACKGROUND)
-            forecast_label.image = forecast_img
+ 
 
             env_detail_label.configure(background=BLACK, foreground=WHITE)
 
@@ -171,7 +177,7 @@ class App:
             k_to_f = (weather_now['main']['temp'] - 32) * (5/9)
 
             temp_giant_label.configure(
-                text='{temp}°C'.format(temp=k_to_c), background=BLACK, foreground=WHITE)
+                text='{temp}°C'.format(temp=k_to_c), background=BLACK, foreground=WHITE, justify=CENTER)
             wind_label.configure(
                 text='Szél sebessége : {wind} m/s'.format(wind=weather_now['wind']['speed']),
                 background=BLACK, foreground=WHITE)
@@ -190,17 +196,25 @@ class App:
             window.after(600000, update_window)
 
         # Header Forecast and City
+        local_title = tkinter.Label(
+            header_frame, width=20, font=('Roboto bold', 24), foreground=WHITE, justify=CENTER
+            )
+        local_title.pack(side=CENTER)
+
+        
         weather_title = tkinter.Label(
-            header_frame, width=20, font=('Helvetica bold', 18), foreground=WHITE, justify=LEFT
+            header_frame, width=20, font=('Roboto bold', 18), foreground=WHITE, justify=LEFT
             )
         weather_title.pack(side=LEFT)
+
+
 
         forecast_label = tkinter.Label(header_frame)
         forecast_label.pack(side=RIGHT, padx=20)
 
         # Middle Frame (Temperature and Details)
         env_detail_label = tkinter.Label(
-           # middle_frame, text='Environment Details', width=20, font=('Helvetica bold', 14),
+           # middle_frame, text='Environment Details', width=20, font=('Roboto bold', 14),
             justify=CENTER
             )
         env_detail_label.pack(fill=X)
@@ -212,28 +226,28 @@ class App:
         temp_frame.pack(fill=X, side=LEFT, anchor=W, pady=20)
 
         temp_giant_label = tkinter.Label(
-            temp_frame, width=10, font=('Helvetica bold', 40)
+            temp_frame, width=10, font=('Roboto bold', 40)
             )
         temp_giant_label.pack(side=LEFT, anchor=E)
 
         wind_label = tkinter.Label(
-            env_detail, font=('Helvetica bold', 12)
+            env_detail, font=('Roboto bold', 12)
             )
         wind_label.pack(fill=X, anchor=W)
 
         humid_label = tkinter.Label(
-            env_detail, font=('Helvetica bold', 12)
+            env_detail, font=('Roboto bold', 12)
             )
         humid_label.pack(fill=X, anchor=W)
 
         pressure_label = tkinter.Label(
-            env_detail, font=('Helvetica bold', 12), justify=LEFT
+            env_detail, font=('Roboto bold', 12), justify=LEFT
             )
         pressure_label.pack(fill=X, anchor=W)
 
         # Footer Frame (Teleprompter)
         clock_label = tkinter.Label(
-            footer_frame, width=20, font=('Helvetica bold', 40),
+            footer_frame, width=20, font=('Roboto bold', 40),
             background=BLACK, foreground='#FFF', justify=LEFT
             )
         clock_label.pack(fill=BOTH)
