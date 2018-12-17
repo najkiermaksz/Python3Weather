@@ -162,6 +162,7 @@ class App:
             local_title.configure(text='{locale}'.format(
                 locale=(self.user['locale']).capitalize()
            ), background=BACKGROUND, foreground='#FFF', justify=CENTER)
+      
 
             weather_title.configure(text='{weather}'.format(
                 weather=(weather_now['weather'][0]['description']).capitalize(),
@@ -195,62 +196,63 @@ class App:
             # NOTE: Don't set the interval to close, weather doesn't change to often
             window.after(600000, update_window)
 
-        # Header Forecast and City
+       #Labels
+
+        forecast_label = tkinter.Label(header_frame)
+        forecast_label.pack(fill=X)
+        
         local_title = tkinter.Label(
             header_frame, width=20, font=('Roboto bold', 24), foreground=WHITE, justify=CENTER
             )
-        local_title.pack(side=CENTER)
+        local_title.pack(fill=X)
 
-        
         weather_title = tkinter.Label(
             header_frame, width=20, font=('Roboto bold', 18), foreground=WHITE, justify=LEFT
             )
-        weather_title.pack(side=LEFT)
+        weather_title.pack(fill=X)
 
+        temp_frame = tkinter.Frame(header_frame)
+        temp_frame.pack(fill=X)
 
+        temp_giant_label = tkinter.Label(
+            temp_frame, width=10, font=('Roboto bold', 40)
+            )
+        temp_giant_label.pack(fill=X)
 
-        forecast_label = tkinter.Label(header_frame)
-        forecast_label.pack(side=RIGHT, padx=20)
-
-        # Middle Frame (Temperature and Details)
         env_detail_label = tkinter.Label(
            # middle_frame, text='Environment Details', width=20, font=('Roboto bold', 14),
             justify=CENTER
             )
         env_detail_label.pack(fill=X)
 
-        env_detail = tkinter.Frame(middle_frame)
-        env_detail.pack(fill=X, side=RIGHT, anchor=E, pady=20, padx=25)
+        env_detail = tkinter.Frame(header_frame)
+        env_detail.pack(fill=X)
 
-        temp_frame = tkinter.Frame(middle_frame)
-        temp_frame.pack(fill=X, side=LEFT, anchor=W, pady=20)
 
-        temp_giant_label = tkinter.Label(
-            temp_frame, width=10, font=('Roboto bold', 40)
-            )
-        temp_giant_label.pack(side=LEFT, anchor=E)
 
         wind_label = tkinter.Label(
             env_detail, font=('Roboto bold', 12)
             )
-        wind_label.pack(fill=X, anchor=W)
+        wind_label.pack(fill=X)
 
         humid_label = tkinter.Label(
             env_detail, font=('Roboto bold', 12)
             )
-        humid_label.pack(fill=X, anchor=W)
+        humid_label.pack(fill=X)
 
         pressure_label = tkinter.Label(
             env_detail, font=('Roboto bold', 12), justify=LEFT
             )
-        pressure_label.pack(fill=X, anchor=W)
+        pressure_label.pack(fill=X)
 
-        # Footer Frame (Teleprompter)
+
+
         clock_label = tkinter.Label(
-            footer_frame, width=20, font=('Roboto bold', 40),
-            background=BLACK, foreground='#FFF', justify=LEFT
+            header_frame, width=20, font=('Roboto bold', 48),
+            background=BLACK, foreground='#FFF', justify=CENTER
             )
-        clock_label.pack(fill=BOTH)
+        clock_label.pack(fill=X)
+    
 
         def update_time():
             """ Update time every second """
